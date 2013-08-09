@@ -1,0 +1,15 @@
+
+function timer_start {
+    timer=${timer:-$SECONDS}
+}
+function timer_stop {
+  timer_show=$(($SECONDS - $timer))
+  if [ $timer_show -eq 0 ];then timer_show=''; else timer_show+='s ';  fi
+  unset timer
+}
+trap 'timer_start' DEBUG
+PROMPT_COMMAND=timer_stop
+
+
+PS1="\[\033[0;33m\]\${timer_show}\[\e[1;36m\]\W> \[\e[m\]"
+
