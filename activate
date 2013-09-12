@@ -4,12 +4,12 @@ function timer_start {
 }
 function timer_stop {
   timer_show=$(($SECONDS - $timer))
+  status_colour="" 
   if [ $timer_show -eq 0 ];then timer_show=''; else timer_show+='s ';  fi
   unset timer
+  if [ $? -eq 0 ]; then status_colour=$cyan; else status_colour=$red; fi
 }
 trap 'timer_start' DEBUG
 PROMPT_COMMAND=timer_stop
-
-
-PS1="\[\033[0;33m\]\${timer_show}\[\e[1;36m\]\W> \[\e[m\]"
+PS1="\[\033[0;33m\]\${timer_show}\[\`if [[ \$? = "0" ]]; then echo '\e[36m'; else echo '\e[31m' ; fi\`\]\W> \[\e[m\]"
 
