@@ -11,3 +11,9 @@ Installation
     git clone git@github.com:shadow7412/sp1.git
     echo source sp1/activate >> ~/.bashrc ; source ~/.bashrc`
 
+Features
+========
+
+    * Minimal
+    * Shows how many seconds the previous command ran for (unless it ran for under a second)
+    * Changes to red if the previous command failed, or had a non zero return code.
