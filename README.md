@@ -9,7 +9,8 @@ Installation
 
     cd ~
     git clone git@github.com:shadow7412/sp1.git
-    echo source sp1/activate >> ~/.bashrc ; source ~/.bashrc`
+    echo source ~/sp1/activate >> ~/.bashrc
+    source ~/.bashrc
 
 Features
 ========
